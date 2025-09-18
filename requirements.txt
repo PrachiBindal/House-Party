@@ -1,0 +1,4 @@
+Django==5.2.5
+djangorestframework==3.15.2
+requests==2.32.3
+django-sslserver==0.22
