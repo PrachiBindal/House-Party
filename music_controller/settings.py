@@ -127,8 +127,10 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Optional: extra places to look for static files (like your React build output)
 STATICFILES_DIRS = [
-    BASE_DIR / "frontend" / "static",
+    BASE_DIR / "frontend" / "static",   # app static files
+    BASE_DIR / "frontend" / "build" / "static",  # React build static files
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
