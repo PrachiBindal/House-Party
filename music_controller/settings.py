@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -121,10 +122,18 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Tell Django where to collect static files
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Optional: extra places to look for static files (like your React build output)
+STATICFILES_DIRS = [
+    BASE_DIR / "frontend" / "static",
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Spotify OAuth redirect (HTTPS for local dev with sslserver)
-SPOTIFY_REDIRECT_URI = "http://127.0.0.1:8000/spotify/redirect"
+SPOTIFY_REDIRECT_URI = os.getenv("SPOTIFY_REDIRECT_URI", "http://localhost:8000/spotify/redirect")
