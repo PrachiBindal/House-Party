@@ -77,6 +77,7 @@ projects/music_controller/
 - Spotify account with an active device (desktop/mobile/web player)
 
 ## Setup and run (development)
+### if you don't want to use docker
 1) Create and activate a Python virtual environment
 - On Windows PowerShell:
 ```
@@ -92,7 +93,6 @@ pip install -r requirements.txt
 
 3) Configure Spotify credentials
 
-```
 create `.env` and set:
 ```
 CLIENT_ID = "your_spotify_client_id"
@@ -120,7 +120,13 @@ From the project root (`projects/music_controller`):
 ```
 python manage.py runserver
 ```
-Visit https://localhost:8000
+Visit http://127.0.0.1:8000
+
+### If using Docker commands:
+```
+docker build -t music-controller .
+docker run -e PORT=8000 -p 8000:8000 music-controller
+```
 
 7) Use the app
 - Create a room, or join one
