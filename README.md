@@ -91,14 +91,13 @@ pip install -r requirements.txt
 ```
 
 3) Configure Spotify credentials
-Copy the example and fill your values:
+
 ```
-cp spotify_api/credentials.example.py spotify_api/credentials.py
-```
-Open `spotify_api/credentials.py` and set:
+create `.env` and set:
 ```
 CLIENT_ID = "your_spotify_client_id"
 CLIENT_SECRET = "your_spotify_client_secret"
+REDIRECT_URI = "your_spotify_redirect_URI"
 ```
 
 - In `music_controller/settings.py` the redirect is:
@@ -116,14 +115,14 @@ python manage.py migrate
 ```
 cd frontend
 npm install
-npm run dev
+npm run build
 ```
 This produces `static/frontend/main.js` (served by Django template).
 
 6) Run Django with HTTPS locally (required for Spotify redirect in this setup)
 From the project root (`projects/music_controller`):
 ```
-python manage.py runsslserver 0.0.0.0:8000
+python manage.py runserver
 ```
 Visit https://localhost:8000
 
