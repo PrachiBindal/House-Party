@@ -99,25 +99,21 @@ CLIENT_ID = "your_spotify_client_id"
 CLIENT_SECRET = "your_spotify_client_secret"
 REDIRECT_URI = "your_spotify_redirect_URI"
 ```
-
-- In `music_controller/settings.py` the redirect is:
-```
-SPOTIFY_REDIRECT_URI = "https://localhost:8000/spotify/redirect"
-```
-Update your Spotify app settings to add this redirect URI.
-
-4) Run database migrations
-```
-python manage.py migrate
-```
-
-5) Build and watch the frontend
+6) Build the frontend
 ```
 cd frontend
 npm install
 npm run build
 ```
 This produces `static/frontend/main.js` (served by Django template).
+
+5) Run database migrations
+```
+python manage.py collectstatic --noinput
+python manage.py migrate
+```
+
+
 
 6) Run Django with HTTPS locally (required for Spotify redirect in this setup)
 From the project root (`projects/music_controller`):
