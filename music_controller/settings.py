@@ -127,9 +127,14 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Optional: extra places to look for static files (like your React build output)
 STATICFILES_DIRS = [
-    BASE_DIR / "frontend" / "static",   # app static files
-    BASE_DIR / "frontend" / "build" / "static",  # React build static files
+    BASE_DIR / "frontend" / "static",  # your own app static files
 ]
+
+# Only add React build output if it exists
+react_build_static = BASE_DIR / "frontend" / "build" / "static"
+if react_build_static.exists():
+    STATICFILES_DIRS.append(react_build_static)
+
 
 
 # Default primary key field type
