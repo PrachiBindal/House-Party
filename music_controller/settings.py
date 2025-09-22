@@ -151,3 +151,10 @@ if PORT:
     from django.core.management.commands.runserver import Command as runserver
     runserver.default_addr = "0.0.0.0"
     runserver.default_port = PORT
+
+# Auto-create admin in demo (optional)
+if os.environ.get("CREATE_SUPERUSER", "False") == "True":
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser("admin", "admin@example.com", "admin123")
