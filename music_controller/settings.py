@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-+fl_byvhmmiu6!y-m41z7#14qe40^kr*k$0r$yrjhg0lvz)cn!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.199']
+ALLOWED_HOSTS = [ ]
 
 
 # Application definition
@@ -127,4 +127,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Spotify OAuth redirect (HTTPS for local dev with sslserver)
-SPOTIFY_REDIRECT_URI = "http://192.168.0.199:8000/spotify/redirect"
+SPOTIFY_REDIRECT_URI = "http://127.0.0.1:8000/spotify/redirect"

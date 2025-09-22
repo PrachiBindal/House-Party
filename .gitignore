@@ -52,9 +52,6 @@ frontend/pnpm-lock.yaml
 # Images (if generated dynamically)
 frontend/static/images/
 
-# --- Secrets ---
-spotify_api/credentials.py
-
 # Local environment specific
 local_settings.py
 *.log
